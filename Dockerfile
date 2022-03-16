@@ -8,6 +8,7 @@ COPY start.sh /
 RUN apk update && \
     apk add krb5 krb5-dev krb5-pkinit && \
     mkdir /etc/kerberos && \
-    mkdir /etc/keytab
+    mkdir /etc/keytab && \
+    chmod +x start.sh
 
 ENTRYPOINT ["sh", "/start.sh"]
