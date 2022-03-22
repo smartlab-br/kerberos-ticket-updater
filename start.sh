@@ -1,5 +1,6 @@
 #!/bin/sh
 echo "Job initialized"
-kinit -kt $KERBEROS_KEYTAB $KERBEROS_USER
+cat $KERBEROS_KEYTAB | base64 > /tmp/krb5.keytab
+kinit -kt /tmp/krb5.keytab $KERBEROS_USER
 echo "Job finished"
 sleep 3600
